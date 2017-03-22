@@ -13,6 +13,7 @@ public class WormSprite {
 
     public ArrayList<CircleSprite> body;
     private boolean isBugCollision;
+    int finalScore;
 
     public WormSprite(){
 
@@ -70,4 +71,19 @@ public class WormSprite {
             isBugCollision = false;
         }
     }
+
+
+    public boolean checkIfWormTouchedItself(){
+
+        for(int i=1; i<body.size(); i++){
+            if(body.get(i).getPosition().equals(body.get(0).getPosition())){
+                finalScore = body.size();
+                return true;
+
+            }
+        }
+        return false;
+    }
+
+
 }

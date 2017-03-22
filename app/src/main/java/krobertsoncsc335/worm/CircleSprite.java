@@ -19,7 +19,7 @@ public class CircleSprite {
     //Direction direction;
     private int speedX = 20;
     private int speedY = 0;
-    private int speed = 100;
+    private int speed;
 
 
 
@@ -28,6 +28,7 @@ public class CircleSprite {
         paint.setARGB(255, 255, 0, 0);
         random = new Random(System.currentTimeMillis());
         radius = (int) (50*DisplayAdvisor.scaleX);
+        speed = 2* radius;
     }
 
     public void draw(Canvas canvas) {

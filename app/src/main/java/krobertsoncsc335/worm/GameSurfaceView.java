@@ -5,6 +5,7 @@ package krobertsoncsc335.worm;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Point;
@@ -24,10 +25,10 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
     public GameSurfaceView(Context context) {
         super(context);
         gameActivity = (GameActivity)context;
-        bugBitmap = DisplayAdvisor.loadBitmap(gameActivity.getResources(), R.drawable.bug);
+        //bugBitmap = DisplayAdvisor.loadBitmap(gameActivity.getResources(), R.drawable.bug);
         bugX = (int)(50 * DisplayAdvisor.scaleX);
         bugY = (int)(50 * DisplayAdvisor.scaleY);
-        bugBitmap = DisplayAdvisor.loadScaledToIdeal(gameActivity.getResources(), bugX, bugY, R.drawable.bug);
+        bugBitmap = DisplayAdvisor.loadScaledToIdeal(gameActivity.getResources(), (int)(100* DisplayAdvisor.scaleX), (int)(100 * DisplayAdvisor.scaleY), R.drawable.bug);
 
     }
 
@@ -41,6 +42,8 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
             Canvas canvas = surfaceHolder.lockCanvas();
 
             worm.updatePosition();
+
+            worm.checkIfWormTouchedItself();
             worm.checkIfAteBug(bugX, bugY);
 
 
@@ -93,6 +96,8 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
             }
         }
     }
+
+
 
 
 }
