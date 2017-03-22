@@ -12,12 +12,10 @@ import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
     GameSurfaceView surfaceView;
-    WormSprite w;
     Point touched = new Point();
     boolean wasTouched;
     private Thread thread = null;
     boolean isRunning = false;
-    //int finalScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +30,20 @@ public class GameActivity extends AppCompatActivity {
         surfaceView = new GameSurfaceView(this);
 
 
-        w = new WormSprite();
+
 
         // Set the view content to our surface view, not R.layout.activity_game
         setContentView(surfaceView);
 
-        if(w.checkIfWormTouchedItself()){
-            Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
-            intent.putExtra("finalScore", w.finalScore);
-            startActivity(intent);
-            finish();
-        }
 
+
+    }
+
+    public void showGameResult(int finalScore){
+        Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
+        intent.putExtra("finalScore", finalScore);
+        startActivity(intent);
+        finish();
     }
 
     @Override

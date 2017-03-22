@@ -13,7 +13,7 @@ public class WormSprite {
 
     public ArrayList<CircleSprite> body;
     private boolean isBugCollision;
-    int finalScore;
+
 
     public WormSprite(){
 
@@ -66,6 +66,7 @@ public class WormSprite {
                 Math.pow(body.get(0).curX - bugX, 2) + Math.pow(body.get(0).curY - bugY, 2));
         if(dist < 2* body.get(0).getRadius()){
             isBugCollision = true;
+
         }
         else{
             isBugCollision = false;
@@ -77,7 +78,6 @@ public class WormSprite {
 
         for(int i=1; i<body.size(); i++){
             if(body.get(i).getPosition().equals(body.get(0).getPosition())){
-                finalScore = body.size();
                 return true;
 
             }

@@ -8,8 +8,7 @@ import android.widget.TextView;
 
 public class ScoreActivity extends AppCompatActivity {
     TextView txtScoreNumView;
-    Button okButton;
-    //WormSprite w = new WormSprite();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +22,7 @@ public class ScoreActivity extends AppCompatActivity {
         txtScoreNumView.setText(String.valueOf(finalScore));
     }
 
+    //RESTART button's onClick property
     public void restartGame(){
         Intent intent= new Intent(ScoreActivity.this,GameActivity.class);
         startActivity(intent);

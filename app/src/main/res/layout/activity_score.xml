@@ -28,6 +28,6 @@
         android:layout_height="wrap_content"
         android:onClick="restartGame"
         android:text="RESTART"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="196dp" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="321dp" />
 </android.support.constraint.ConstraintLayout>

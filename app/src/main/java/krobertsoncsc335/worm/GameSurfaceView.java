@@ -12,6 +12,8 @@ import android.graphics.Point;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import java.util.Random;
+
 public class GameSurfaceView extends SurfaceView implements Runnable {
     private final GameActivity gameActivity;
     boolean isRunning = false;     // true when activity is active and running
@@ -21,6 +23,7 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
     private WormSprite worm = new WormSprite();
     private Bitmap bugBitmap;
     private int bugX, bugY;
+    Random r = new Random();
 
     public GameSurfaceView(Context context) {
         super(context);
@@ -43,8 +46,12 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
 
             worm.updatePosition();
 
-            worm.checkIfWormTouchedItself();
+            if(worm.checkIfWormTouchedItself()){
+                gameActivity.showGameResult(worm.body.size());
+            }
             worm.checkIfAteBug(bugX, bugY);
+
+
 
 
 
@@ -97,7 +104,10 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
         }
     }
 
-
+    public void moveBug(){
+        bugX = r.nextInt(DisplayAdvisor.maxX);
+        bugY = r.nextInt(DisplayAdvisor.maxY);
+    }
 
 
 }
