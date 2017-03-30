@@ -5,6 +5,7 @@ import android.graphics.Point;
 
 import java.util.ArrayList;
 
+
 /**
  * Created by Kevron on 3/6/2017.
  */
@@ -12,7 +13,9 @@ import java.util.ArrayList;
 public class WormSprite {
 
     public ArrayList<CircleSprite> body;
-    private boolean isBugCollision;
+    public boolean isBugCollision;
+
+
 
 
     public WormSprite(){
@@ -84,6 +87,10 @@ public class WormSprite {
         }
         return false;
     }
+
+
+
+
 
 
 }

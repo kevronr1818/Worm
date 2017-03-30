@@ -5,7 +5,6 @@ package krobertsoncsc335.worm;
  */
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Point;
@@ -23,7 +22,8 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
     private WormSprite worm = new WormSprite();
     private Bitmap bugBitmap;
     private int bugX, bugY;
-    Random r = new Random();
+    Random newBugPosition = new Random();
+
 
     public GameSurfaceView(Context context) {
         super(context);
@@ -50,9 +50,10 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
                 gameActivity.showGameResult(worm.body.size());
             }
             worm.checkIfAteBug(bugX, bugY);
-
-
-
+            if(worm.isBugCollision){
+                canvas.drawBitmap(bugBitmap, newBugPosition.nextInt(DisplayAdvisor.maxX),
+                        newBugPosition.nextInt(DisplayAdvisor.maxY), null);
+            }
 
 
             if(gameActivity.wasTouched){
@@ -104,10 +105,15 @@ public class GameSurfaceView extends SurfaceView implements Runnable {
         }
     }
 
-    public void moveBug(){
-        bugX = r.nextInt(DisplayAdvisor.maxX);
-        bugY = r.nextInt(DisplayAdvisor.maxY);
+    public void moveBug(int bugX, int bugY){
+        Canvas canvas = new Canvas();
+        bugX = newBugPosition.nextInt(DisplayAdvisor.maxX);
+        bugY = newBugPosition.nextInt(DisplayAdvisor.maxY);
+
     }
+
+
+
 
 
 }

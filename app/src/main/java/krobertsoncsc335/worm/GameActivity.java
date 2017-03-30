@@ -5,10 +5,8 @@ import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import android.view.Window;
 import android.view.WindowManager;
 
-import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
     GameSurfaceView surfaceView;
@@ -16,6 +14,7 @@ public class GameActivity extends AppCompatActivity {
     boolean wasTouched;
     private Thread thread = null;
     boolean isRunning = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +79,8 @@ public class GameActivity extends AppCompatActivity {
        super.onPause();
         surfaceView.onPause();
     }
+
+
 
 
 

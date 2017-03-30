@@ -1,33 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="krobertsoncsc335.worm.ScoreActivity">
 
-    <TextView
-        android:id="@+id/txtScoreView"
-        android:layout_width="164dp"
-        android:layout_height="59dp"
-        android:text="Score: "
+    <Button
+        android:id="@+id/restartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="159dp"
+        android:onClick="restartGame"
+        android:text="RESTART"
         tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="122dp" />
+        tools:layout_editor_absoluteY="196dp"
+        android:layout_below="@+id/txtScoreView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="137dp" />
+
+    <TextView
+        android:id="@+id/txtView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/restartButton"
+        android:layout_below="@+id/txtScoreView"
+        android:layout_marginEnd="43dp"
+        android:layout_marginTop="67dp"
+        android:text="Score:" />
 
     <TextView
         android:id="@+id/txtScoreNumView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        tools:layout_editor_absoluteX="188dp"
-        tools:layout_editor_absoluteY="122dp" />
-
-    <Button
-        android:id="@+id/restartButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="restartGame"
-        android:text="RESTART"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="321dp" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_alignStart="@+id/restartButton"
+        android:layout_alignTop="@+id/txtView2"
+        android:layout_marginStart="71dp"
+        android:text="0" />
+</RelativeLayout>
